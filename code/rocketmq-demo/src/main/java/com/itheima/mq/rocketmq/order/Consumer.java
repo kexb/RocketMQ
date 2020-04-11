@@ -20,7 +20,6 @@ public class Consumer {
 
         //4.注册消息监听器
         consumer.registerMessageListener(new MessageListenerOrderly() {
-
             @Override
             public ConsumeOrderlyStatus consumeMessage(List<MessageExt> msgs, ConsumeOrderlyContext context) {
                 for (MessageExt msg : msgs) {
@@ -29,7 +28,6 @@ public class Consumer {
                 return ConsumeOrderlyStatus.SUCCESS;
             }
         });
-
         //5.启动消费者
         consumer.start();
 

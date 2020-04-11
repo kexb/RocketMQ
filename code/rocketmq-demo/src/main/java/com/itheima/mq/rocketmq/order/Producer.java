@@ -29,21 +29,13 @@ public class Producer {
              * 参数三：选择队列的业务标识（订单ID）
              */
             SendResult sendResult = producer.send(message, new MessageQueueSelector() {
-                /**
-                 *
-                 * @param mqs：队列集合
-                 * @param msg：消息对象
-                 * @param arg：业务标识的参数
-                 * @return
-                 */
                 @Override
-                public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
+                public MessageQueue select(List<MessageQueue> mqs, Message message, Object arg) {
                     long orderId = (long) arg;
                     long index = orderId % mqs.size();
                     return mqs.get((int) index);
                 }
             }, orderSteps.get(i).getOrderId());
-
             System.out.println("发送结果：" + sendResult);
         }
         producer.shutdown();

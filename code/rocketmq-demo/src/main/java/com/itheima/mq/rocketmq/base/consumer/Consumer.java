@@ -5,7 +5,6 @@ import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.common.message.MessageExt;
-import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
 
 import java.util.List;
 
@@ -20,10 +19,10 @@ public class Consumer {
         //2.指定Nameserver地址
         consumer.setNamesrvAddr("192.168.3.156:9876;192.168.3.157:9876");
         //3.订阅主题Topic和Tag
-        consumer.subscribe("base", "*");
+        consumer.subscribe("springboot-mq", "Tag1");
 
         //设定消费模式：负载均衡|广播模式
-        consumer.setMessageModel(MessageModel.BROADCASTING);
+        //consumer.setMessageModel(MessageModel.BROADCASTING);
 
         //4.设置回调函数，处理消息
         consumer.registerMessageListener(new MessageListenerConcurrently() {
