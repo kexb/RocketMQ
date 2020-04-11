@@ -14,7 +14,7 @@ public class Consumer {
         //1.创建消费者Consumer，制定消费者组名
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("group1");
         //2.指定Nameserver地址
-        consumer.setNamesrvAddr("192.168.25.135:9876;192.168.25.138:9876");
+        consumer.setNamesrvAddr("192.168.3.156:9876;192.168.3.157:9876");
         //3.订阅主题Topic和Tag
         consumer.subscribe("DelayTopic", "*");
 
