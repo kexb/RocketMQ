@@ -29,7 +29,7 @@ public class Producer {
              */
             Message msg = new Message("DelayTopic", "Tag1", ("Hello World" + i).getBytes());
             //设定延迟时间
-            //msg.setDelayTimeLevel(2);
+            msg.setDelayTimeLevel(2);
             //5.发送消息
             SendResult result = producer.send(msg);
             //发送状态
