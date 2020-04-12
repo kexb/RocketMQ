@@ -36,6 +36,6 @@ public class Consumer {
         });
         //5.启动消费者consumer
         consumer.start();
-        System.out.println("生产者启动");
+        System.out.println("消费者启动");
     }
 }
